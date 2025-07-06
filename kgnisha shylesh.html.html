@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K.G. Nisha Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Playfair+Display:wght@800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0b1c2d;
+      --gray: #eaeef3;
+      --blue: #00bfff;
+      --highlight: #facc15;
+      --light-shadow: rgba(255, 255, 255, 0.2);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--navy);
+      color: var(--gray);
+      font-size: 1.3rem;
+      overflow-x: hidden;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background-color: var(--navy);
+      padding: 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav h1.title-gradient {
+      font-size: 2.8rem;
+      background: linear-gradient(to right, var(--blue), var(--highlight));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: flutter 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes flutter {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.08); }
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--gray);
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: var(--highlight);
+    }
+    .welcome-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(11, 28, 45, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 6rem;
+      font-family: 'Playfair Display', serif;
+      color: white;
+      font-weight: bold;
+      border: 8px solid var(--highlight);
+      box-shadow: 0 0 50px var(--highlight);
+      z-index: 9999;
+      animation: fadeWelcome 3s forwards;
+    }
+    @keyframes fadeWelcome {
+      0% { opacity: 1; }
+      66% { opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 3rem 2rem;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+    .hero img {
+      width: 450px;
+      border-radius: 25px;
+      box-shadow: 0 0 25px var(--blue);
+    }
+    .hero-right {
+      flex: 1;
+      font-size: 1.6rem;
+    }
+    .hero-right h1 {
+      font-size: 3.8rem;
+      color: var(--highlight);
+    }
+    .hero-right h2 {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      color: var(--blue);
+    }
+    .hero-right p {
+      font-size: 1.5rem;
+      line-height: 1.8;
+      margin-top: 1rem;
+    }
+    section {
+      padding: 3rem 2rem;
+    }
+    h2.section-title {
+      font-size: 3rem;
+      color: var(--highlight);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .skill-card {
+      background: #1a2635;
+      padding: 1.5rem;
+      border-radius: 15px;
+      text-align: center;
+      border: 4px solid transparent;
+      transition: transform 0.3s, border 0.3s;
+    }
+    .skill-card:nth-child(1) { border-color: #f87171; }
+    .skill-card:nth-child(2) { border-color: #34d399; }
+    .skill-card:nth-child(3) { border-color: #60a5fa; }
+    .skill-card:nth-child(4) { border-color: #a78bfa; }
+    .skill-card:nth-child(5) { border-color: #fcd34d; }
+    .skill-card:nth-child(6) { border-color: #f472b6; }
+    .skill-card img {
+      width: 120px;
+      transition: transform 0.4s;
+    }
+    .skill-card:hover img {
+      transform: scale(1.1);
+    }
+    .internships {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+    .internship-item {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-direction: row;
+    }
+    .internship-item img {
+      width: 400px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px var(--light-shadow);
+    }
+    .internship-desc h3 {
+      font-size: 2rem;
+      color: var(--highlight);
+    }
+    .internship-desc p {
+      margin-top: 0.5rem;
+    }
+    .education {
+      border-left: 5px solid var(--highlight);
+      padding-left: 2rem;
+      margin-left: 1rem;
+    }
+    .education-item {
+      margin-bottom: 2rem;
+      font-size: 1.4rem;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .project {
+      background-color: #1a2635;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 10px #00000070;
+      padding: 1rem;
+    }
+    .project img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    
+  /* PROJECT MODAL */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+  }
+  .modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+  }
+  .modal-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #222;
+  }
+  .modal-content p {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  #closeModal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: red;
+    z-index: 10001;
+  }
+
+  /* SLIDESHOW */
+  #slideshow-container {
+    display: flex;
+    gap: 2rem;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 300px;
+  }
+  .slide {
+    flex: 0 0 30%;
+    transform: scale(0.9);
+    opacity: 0.5;
+    transition: transform 0.6s, opacity 0.6s;
+    text-align: center;
+  }
+  .slide img,
+  .slide video {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .slide.active {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+
+
+    .contact-box {
+      background: #1a2635;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+    }
+    .contact-box a {
+      color: var(--highlight);
+      text-decoration: none;
+      display: block;
+      margin: 0.5rem 0;
+      font-size: 1.5rem;
+
+    }
+
+  /* ... existing styles above ... */
+
+  
+
+/* Modal for fullscreen view */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
+}
+.modal-content img,
+.modal-content video {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 12px;
+}
+#closeModal {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: red;
+  z-index: 10001;
+}
+
+  
+
+<!--slide show css-->
+
+    body {
+      margin: 0;
+      background: #0e0e0e;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+    }
+.design-gallery {
+  padding: 4rem 1rem;
+  background: linear-gradient(145deg, #0f0f0f, #1e1e1e);
+  overflow: hidden;
+}
+
+.gallery-title {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.gallery-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-track {
+  display: flex;
+  animation: slideGallery 20s linear infinite;
+}
+
+.gallery-item {
+  flex: 0 0 33.3333%;
+  padding: 1rem;
+  box-sizing: border-box;
+  transform: scale(0.9);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.gallery-item.centered {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+  z-index: 2;
+}
+
+.media-wrapper {
+  aspect-ratio: 4 / 3;
+  border-radius: 15px;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+}
+
+.gallery-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.media-title {
+  text-align: center;
+  margin-top: 0.75rem;
+  font-size: 1.1rem;
+  animation: fadeIn 1.5s ease;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.popup img, .popup video {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideGallery {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-50%); }
+  100% { transform: translateX(-100%); }
+}
+
+@media (max-width: 768px) {
+  .gallery-item {
+    flex: 0 0 100%;
+  }
+}
+
+  .design-gallery-wrapper {
+    overflow: hidden;
+    width: 100%;
+    padding: 2rem 0;
+    position: relative;
+    background: linear-gradient(145deg, #0f0f0f, #1e1e1e);
+  }
+
+  .slideshow-track {
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+    padding-left: 2rem;
+  }
+
+  .slide-item {
+    flex: 0 0 30%;
+    opacity: 0.6;
+    transform: scale(0.9);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    position: relative;
+  }
+
+  .slide-item.active {
+    transform: scale(1.1);
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .slide-item img,
+  .slide-item video {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+    display: block;
+  }
+  
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+.image-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.image-popup img {
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(255,255,255,0.2);
+  object-fit: contain;
+}
+
+.image-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+  z-index: 3000;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+  .image-close-btn {
+    font-size: 2rem;
+    top: 10px;
+    right: 15px;
+  }
+}
+
+
+  .slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    padding: 0.5rem;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .slide-item:hover .slide-caption {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .slide-item {
+      flex: 0 0 100%;
+    }
+  }
+/* Modal for project  */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .project {
+    background: #1a1a1a;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .project:hover {
+    transform: scale(1.03);
+  }
+
+  .project img,
+  .project video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 15, 15, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .popup-content {
+    background: #121212;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    color: #fff;
+    position: relative;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  .section-title {
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    color: white;
+    margin-top: 2rem;
+  }
+
+  body {
+    background: #0e0e0e;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    color: white;
+  }
+    .project-description {
+    font-size: 1rem;
+    color: #ccc;
+    margin-top: 0.5rem;
+  }
+  .projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .project {
+    flex: 1 1 300px;
+    background: #1a2635;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    text-align: center;
+    max-width: 90vw;
+  }
+
+  .project img,
+  .project video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .project h3 {
+    margin-top: 1rem;
+    color: #facc15;
+  }
+
+  .project-description {
+    font-size: 1rem;
+    color: #ccc;
+    margin-top: 0.5rem;
+  }
+
+  /* Popup Responsive */
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    padding: 1rem;
+    flex-direction: column;
+  }
+
+  .popup video,
+  .popup img {
+    max-width: 90vw;
+    max-height: 70vh;
+    border-radius: 12px;
+  }
+
+  .popup h2,
+  .popup p {
+    color: white;
+    margin-top: 1rem;
+    max-width: 90vw;
+    text-align: center;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+    .project {
+      width: 100%;
+      max-width: 95vw;
+    }
+    .popup video,
+    .popup img {
+      max-width: 95vw;
+      max-height: 50vh;
+    }
+    .popup h2,
+    .popup p {
+      font-size: 1rem;
+    }
+  }
+
+</style>
+<!-- The rest of the HTML content remains as is below -->
+
+
+</head>
+<body>
+  <div class="welcome-screen" id="welcome-screen">WELCOME</div>
+  <nav>
+    <h1 class="title-gradient">PORTFOLIO</h1>
+    <a href="#skills">Skills</a>
+    <a href="#internships">Internships</a>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
+    <a href="#Design Gallery ">Design Gallery</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero" id="hero">
+    <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\project\nisha.jpg.jpg" alt="Nisha Photo">
+    <div class="hero-right">
+      <h1>K.G. NISHA</h1>
+      <h2>Who Am I?</h2>
+      <h3>“A dedicated learner in Mechanical Engineering, constantly evolving through design and automation. I believe in blending creativity with precision to engineer meaningful change.”</h3>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\project\solidworks.jpg" alt="SolidWorks">
+        <p>SolidWorks</p>
+      </div>
+      <div class="skill-card">
+        <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\project\creo.jpg" alt="Creo">
+        <p>Creo Parametric</p>
+      </div>
+      <div class="skill-card">
+        <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\project\fusion360.jpg" alt="Fusion 360">
+        <p>Fusion 360</p>
+      </div>
+      <div class="skill-card">
+        <img src= "C:\Users\kgn05\Documents\NISHA\PHOTOS\project\python.jpg" alt="Python">
+        <p>Python</p>
+      </div>
+      <div class="skill-card">
+        <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\project\cprogram.jpg" alt="C Programming">
+        <p>C Programming</p>
+      </div>
+      <div class="skill-card">
+        <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\project\msword.jpg" alt="MS Word">
+        <p>MS Word</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="internships">
+    <h2 class="section-title">Internships</h2>
+    <div class="internships">
+      <div class="internship-item">
+        <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\project\wheelsIndia.jpg" alt="Wheels India">
+        <div class="internship-desc">
+          <h3>Wheels India Ltd</h3>
+          <p><strong>Duration:</strong> Nov – Dec 2024</p>
+          <p><strong>Task:</strong> Studied high rejection rates in welded joints of wheel assemblies. Analyzed defects and proposed design improvements.</p>
+        </div>
+      </div>
+      <div class="internship-item">
+        <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\project\chennaiPort.jpg" alt="Chennai Port Trust">
+        <div class="internship-desc">
+          <h3>Chennai Port Trust</h3>
+          <p><strong>Duration:</strong> June – July 2024</p>
+          <p><strong>Task:</strong> Gained insights into mechanical operations and port logistics systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+  <div class="projects-grid">
+    <!-- Project 1 -->
+    <div class="project gallery-img" onclick="openProjectPopup(this)" data-title="Offline Voice-Controlled System" data-desc="Controlled appliances offline using Raspberry Pi and Python. Microphone input with voice processing triggered electrical relays.">
+      <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\project\voice_project.jpg.jpg" alt="Voice Control">
+      <h3>Offline Voice-Controlled System</h3>
+      <p class="project-description">Controlled appliances offline using Raspberry Pi and Python. Microphone input with voice processing triggered electrical relays.</p>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project gallery-img" onclick="openProjectPopup(this)" data-title="Water Cleaning Device" data-desc="YOLO-based autonomous plastic cleaning robot for water bodies. Integrated ESP32, DC motors, and onboard camera.">
+      <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\project\cleanbot.jpg.jpg" alt="Water Cleaning Device">
+      <h3>Water Cleaning Device</h3>
+      <p class="project-description">YOLO-based autonomous plastic cleaning robot for water bodies. Integrated ESP32, DC motors, and onboard camera.</p>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project gallery-img" onclick="openProjectPopup(this)" data-title="Electric Two-Wheeler Design" data-desc="Participated in SAE design contest. Focused on weight optimization, aerodynamics, and energy efficiency.">
+      <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\project\sae_project.jpg.jpg" alt="Electric Two-Wheeler">
+      <h3>Electric Two-Wheeler Design</h3>
+      <p class="project-description">Participated in SAE design contest. Focused on weight optimization, aerodynamics, and energy efficiency.</p>
+    </div>
+
+    <!-- Project 4 with Video -->
+    <div class="project gallery-img" onclick="openProjectPopup(this)" data-title="Hybrid Solar CNT Turbine" data-desc="Combined solar panels with CNT turbine to create efficient hybrid energy generation system.">
+      <video class="project-video" autoplay muted loop playsinline preload="auto">
+        <source src="C:\Users\kgn05\Documents\NISHA\PHOTOS\project\turbine_project.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3>Hybrid Solar CNT Turbine</h3>
+      <p class="project-description">Combined solar panels with CNT turbine to create efficient hybrid energy generation system.</p>
+    </div>
+  </div>
+
+  <!-- Popup modal -->
+  <div id="projectPopup" class="popup" style="display:none">
+    <span class="close-btn" onclick="closeProjectPopup()">&times;</span>
+    <div id="popupProjectContent"></div>
+  </div>
+</section>
+
+  <!-- Popup modal -->
+  <div id="projectPopup" class="popup" style="display:none">
+    <span class="close-btn" onclick="closeProjectPopup()">&times;</span>
+    <div id="popupProjectContent"></div>
+  </div>
+</section>
+
+<!-- Popup -->
+<div class="popup" id="popup" style="display: none;">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <h2 id="popup-title"></h2>
+    <p id="popup-desc"></p>
+  </div>
+</div>
+
+<!-- DESIGN SLIDESHOW SECTION -->
+<section id="gallery">
+  <h2 class="section-title">Design Gallery</h2>
+  <div class="slideshow-container" id="slideshow-container">
+    <!-- Slides will be injected dynamically -->
+  </div>
+</section>
+
+<!--DESIGN GALLERY SHYLESH-->
+    <div class="gallery-container">
+      <div class="gallery-track">
+        
+         <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\THERMAL SIMULATION 1.jpg" alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">THERMAL HEAT DISTRIBUTION </h3>
+        </div>
+        
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\TURBINE .jpg" alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">TURBINE </h3>
+        </div>
+
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <video src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\CYLINDER WORKING.mp4" class="gallery-media" muted loop></video>
+          </div>
+          <h3 class="media-title">4-CYLINDER ENGINE  </h3>
+        </div>
+
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <video src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\SIMULATION CANTILEVER BEAM .mp4" class="gallery-media" muted loop></video>
+          </div>
+          <h3 class="media-title">CANTILEVER - SIMULATION (SOLIDWORKS)</h3>
+        </div>
+
+         <div class="gallery-item">
+          <div class="media-wrapper">
+            <video src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\SPRING .mp4" class="gallery-media" muted loop></video>
+          </div>
+          <h3 class="media-title">SPRING ANIMATION (SOLIDWORKS ) </h3>
+        </div>
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\MODEL2.jpg" alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">MODEL 2 </h3>
+        </div>
+
+         <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\car model .jpg" alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">CAR MODEL </h3>
+        </div>
+
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\CHAIR.jpg" alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">CHAIR </h3>
+        </div>
+
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\CUP.jpg" alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">CUP </h3>
+        </div>
+
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\DRONE.jpg" alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">DRONE</h3>
+        </div>
+          <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\BUS.jpg"alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">BUS - SOLIDWORKS </h3>
+        </div>
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\FAN.jpg" alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">FAN - CREO </h3>
+        </div>
+
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\flange couple .jpg" alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">FLANGE COUPLE </h3>
+        </div>
+
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\BOAT1.jpg" alt="Project 1" class="gallery-media">
+          </div>
+          <h3 class="media-title">BOAT </h3>
+        </div>
+
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\MODEL1.jpg" alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">MODEL 1 </h3>
+        </div>
+
+    
+
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\NUT .jpg" alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">NUT </h3>
+        </div>
+
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\PEN .jpg" alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">PEN </h3>
+        </div>
+
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\SHIP.jpg" alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">SHIP</h3>
+        </div>
+
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\THERMAL SIMULATION 1.jpg" alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">THERMAL HEAT DISTRIBUTION </h3>
+        </div>
+
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\THERMAL SIMULATION 2.jpg" alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">THERMAL HEAT GRADIENT </h3>
+        </div>
+
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\THERMAL SIMULATION3.jpg" alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">THERMAL HEAT FLUX </h3>
+        </div>
+
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\WHEEL.jpg" alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">WHEEL </h3>
+        </div>
+
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <video src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\BOLT .mp4" class="gallery-media" muted loop></video>
+          </div>
+          <h3 class="media-title">BOLT </h3>
+        </div>
+
+        <div class="gallery-item">
+          <div class="media-wrapper">
+            <img src="C:\Users\kgn05\Documents\NISHA\PHOTOS\JOB\SHIP.jpg" alt="Project 2" class="gallery-media">
+          </div>
+          <h3 class="media-title">BOAT </h3>
+        </div>
+        <!-- ENLARGED IMAGE POPUP -->
+    <div id="imagePopup" class="image-popup" style="display: none;">
+    <span class="image-close-btn" onclick="closeImagePopup()">&times;</span>
+     <img id="popupImage" src="" alt="Enlarged view">
+</div>
+
+      </div>
+    </div>
+  </section>
+
+  <div id="popup" class="popup" style="display: none;">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <div id="popup-content"></div>
+  </div>
+
+<!-- MODAL STRUCTURE -->
+<div id="galleryModal" class="modal">
+  <div class="modal-content">
+    <span id="closeModal">&times;</span>
+    <div id="modalDisplay"></div>
+  </div>
+</div>
+
+<section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-box">
+      <a href="mailto:kgn05nisha@gmail.com">📧 kgn05nisha@gmail.com</a>
+      <a href="tel:8122825899">📞 8122825899</a>
+      <a href="C:\Users\kgn05\Documents\NISHA\PHOTOS\project\K.G.NISHA -RESUME .pdf.pdf" download>📄 Download Resume</a>
+      <a href="https://www.linkedin.com/in/k-g-nisha-8b5588272/" target="_blank">🔗 LinkedIn</a>
+    </div>
+  </section>
+
+<!-- Modal structure -->
+<div id="galleryModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.9); z-index:10000; justify-content:center; align-items:center;">
+  <div class="modal-content" style="position:relative; max-width:90vw; max-height:90vh; background:#fff; padding:1rem; border-radius:12px;">
+    <span id="closeModal" style="position:absolute; top:10px; right:20px; font-size:2rem; cursor:pointer; color:red;">&times;</span>
+    <div id="modalDisplay"></div>
+  </div>
+</div>
+
+<script>
+  const galleryTrack = document.querySelector('.gallery-track');
+  const items = document.querySelectorAll('.gallery-item');
+  const popup = document.getElementById('popup');
+  const popupContent = document.getElementById('popup-content');
+
+  let currentIndex = 0;
+  const itemWidth = items[0].offsetWidth;
+  let isPaused = false;
+  let autoSlide;
+
+  function updateSlider() {
+    if (isPaused) return;
+
+    items.forEach((item, i) => {
+      item.classList.remove('centered');
+      const media = item.querySelector('.gallery-media');
+      if (media.tagName === 'VIDEO') {
+        media.pause();
+        media.currentTime = 0;
+      }
+    });
+
+    const currentItem = items[currentIndex];
+    currentItem.classList.add('centered');
+
+    const offset = currentIndex * itemWidth;
+    galleryTrack.style.transform = `translateX(calc(50vw - ${itemWidth / 2}px - ${offset}px))`;
+
+    const media = currentItem.querySelector('.gallery-media');
+    if (media.tagName === 'VIDEO') {
+      media.play();
+    }
+
+    currentIndex = (currentIndex + 1) % items.length;
+  }
+
+  autoSlide = setInterval(updateSlider, 2000);
+
+  items.forEach((item, index) => {
+    const media = item.querySelector('.gallery-media');
+
+    item.addEventListener('mouseenter', () => {
+      isPaused = true;
+      if (media.tagName === 'VIDEO') media.play();
+    });
+
+    item.addEventListener('mouseleave', () => {
+      isPaused = false;
+      if (media.tagName === 'VIDEO') {
+        media.pause();
+        media.currentTime = 0;
+      }
+    });
+
+    item.addEventListener('mousedown', () => {
+      isPaused = true;
+    });
+
+    item.addEventListener('mouseup', () => {
+      isPaused = false;
+    });
+
+    item.addEventListener('click', () => {
+      isPaused = true;
+      popupContent.innerHTML = '';
+      const clone = media.cloneNode(true);
+      if (clone.tagName === 'VIDEO') {
+        clone.controls = true;
+        clone.autoplay = true;
+      }
+      popupContent.appendChild(clone);
+      popup.style.display = 'flex';
+    });
+  });
+
+  function closePopup() {
+    popup.style.display = 'none';
+    popupContent.innerHTML = '';
+    isPaused = false;
+  }
+
+  // Touch swipe support
+  let startX = 0, endX = 0;
+
+  galleryTrack.addEventListener('touchstart', (e) => {
+    isPaused = true;
+    startX = e.touches[0].clientX;
+  });
+
+  galleryTrack.addEventListener('touchmove', (e) => {
+    endX = e.touches[0].clientX;
+  });
+
+  galleryTrack.addEventListener('touchend', () => {
+    let delta = endX - startX;
+    if (Math.abs(delta) > 50) {
+      if (delta > 0) {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+      } else {
+        currentIndex = (currentIndex + 1) % items.length;
+      }
+      updateSlider();
+    }
+    isPaused = false;
+  });
+</script>
+
+<script>
+  const projects = document.querySelectorAll('.gallery-img');
+  const popupTitle = document.getElementById('popup-title');
+  const popupDesc = document.getElementById('popup-desc');
+
+  projects.forEach(project => {
+    project.addEventListener('click', () => {
+      const title = project.getAttribute('data-title');
+      const desc = project.getAttribute('data-desc');
+      popupTitle.innerText = title;
+      popupDesc.innerText = desc;
+      popup.style.display = 'flex';
+    });
+  });
+
+  function closePopup() {
+    popup.style.display = 'none';
+  }
+  // ENLARGED IMAGE POPUP FUNCTIONALITY
+const imagePopup = document.getElementById("imagePopup");
+const popupImage = document.getElementById("popupImage");
+
+document.querySelectorAll(".project img").forEach(img => {
+  img.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevents triggering the text popup
+    popupImage.src = img.src;
+    imagePopup.style.display = "flex";
+  });
+});
+
+function closeImagePopup() {
+  imagePopup.style.display = "none";
+  popupImage.src = "";
+}
+
+</script>
+<script>
+  function openProjectPopup(el) {
+    const title = el.getAttribute('data-title');
+    const desc = el.getAttribute('data-desc');
+    let media = el.querySelector('img, video');
+    let mediaClone = media.cloneNode(true);
+    if (media.tagName === 'VIDEO') {
+      mediaClone.controls = true;
+      mediaClone.autoplay = true;
+      mediaClone.loop = true;
+    }
+    document.getElementById('popupProjectContent').innerHTML = '';
+    document.getElementById('popupProjectContent').appendChild(mediaClone);
+    document.getElementById('popupProjectContent').innerHTML += `<h2>${title}</h2><p>${desc}</p>`;
+    document.getElementById('projectPopup').style.display = 'flex';
+  }
+
+  function closeProjectPopup() {
+    document.getElementById('projectPopup').style.display = 'none';
+    document.getElementById('popupProjectContent').innerHTML = '';
+  }
+</script>
+</body>
+</html>
